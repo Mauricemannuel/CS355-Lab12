@@ -1,8 +1,6 @@
-<html>
-<head>
-    <title>Add New School</title>
-</head>
-<body>
+<%- include("../includes/header.ejs", {title:"Add New School"}); %>
+<br />
+<a href="/"><< back</a>
     <h1>Add New School</h1>
     <form action="/school/insert" method="get">
         School Name: <input id="school_name" name="school_name" type="text" />
@@ -11,7 +9,7 @@
         Address
         <select id="address_id" name="address_id">
             <% for(var i=0; address.length > i; i++ ) { %>
-                <option value="<%= address[i].address_id %>"><%= address[i].street + ', ' + address[i].zipcode %></option>
+                <option value="<%= address[i].address_id %>"><%= address[i].street + ', ' + address[i].zip_code %></option>
             <% } %>
         </select>
         <br />

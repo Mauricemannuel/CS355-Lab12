@@ -20,12 +20,12 @@ exports.getAll = function(callback) {
 };
 
 exports.getById = function(company_id, callback) {
-    var query = 'SELECT c.*, a.street, a.zipcode FROM company c ' +
+    var query = 'SELECT c.*, a.street, a.zip_code FROM company c ' +
         'LEFT JOIN company_address ca on ca.company_id = c.company_id ' +
         'LEFT JOIN address a on a.address_id = ca.address_id ' +
         'WHERE c.company_id = ?';
     var queryData = [company_id];
-    console.log(query);
+    console.log(queryData);
 
     connection.query(query, queryData, function(err, result) {
 
@@ -46,10 +46,11 @@ exports.insert = function(params, callback) {
         var company_id = result.insertId;
 
         // NOTE THAT THERE IS ONLY ONE QUESTION MARK IN VALUES ?
-        var query = 'INSERT INTO company_address (company_id, address_id) VALUES (?)';
+        var query = 'INSERT INTO company_address (company_id, address_id) VALUES ?';
 
         // TO BULK INSERT RECORDS WE CREATE A MULTIDIMENSIONAL ARRAY OF THE VALUES
         var companyAddressData = [];
+        var companyAddressDatay = '';
         for(var i=0; i < params.address_id.length; i++) {
             companyAddressData.push([company_id, params.address_id[i]]);
         }

@@ -12,7 +12,17 @@ var connection = mysql.createConnection(db.config);
  */
 
 exports.getAll = function(callback) {
-    var query = 'SELECT * FROM school_view;';
+    var query = 'SELECT * FROM school;';
+
+    connection.query(query, function(err, result) {
+        callback(err, result);
+    });
+};
+
+exports.getAllX = function(callback) {
+    var query = 'Select s.school_id as school_id, s.school_name as ' +
+        'school_name, a.street as street, a.zip_code as zip_code From ' +
+        'school s Left Join address a on s.address_id = a.address_id;';
 
     connection.query(query, function(err, result) {
         callback(err, result);
@@ -20,7 +30,7 @@ exports.getAll = function(callback) {
 };
 
 exports.getById = function(school_id, callback) {
-    var query = 'SELECT * FROM school_view WHERE school_id = ?';
+    var query = 'SELECT * FROM school WHERE school_id = ?';
     var queryData = [school_id];
 
     connection.query(query, queryData, function(err, result) {

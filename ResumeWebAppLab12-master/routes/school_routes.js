@@ -6,8 +6,11 @@ var address_dal = require('../model/address_dal');
 
 // View All schools
 router.get('/all', function(req, res) {
-    school_dal.getAll(function(err, result){
+    school_dal.getAllX(function(err, result){
         if(err) {
+            console.log(err)
+            console.log(result)
+            console.log('ERR X')
             res.send(err);
         }
         else {

@@ -1,8 +1,7 @@
-<html>
-<head>
-    <title>Schools - <%= result[0].school_name %></title>
-</head>
-<body>
+<%- include("../includes/header.ejs", {title:"Schools - " + result[0].school_name}); %>
+<br />
+<a href="/company/all"><< back</a>
+Schools - <%= result[0].school_name %>
     <h1>Schools</h1>
     <ul>
         <li>School ID: <%= result[0].school_id%></li>

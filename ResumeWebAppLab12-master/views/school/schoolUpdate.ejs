@@ -1,8 +1,6 @@
-<html>
-<head>
-    <title>Update <%= school.school_name%></title>
-</head>
-<body>
+<%- include("../includes/header.ejs", {title: "Update " + school.school_name}); %>
+<br />
+<a href="/company/all"><< back</a>
 <h1>Update <%= school.school_name%></h1>
 <form action="/school/update" method="get">
     <input type="hidden" id="school_id" name="school_id" value="<%= school.school_id %>">
