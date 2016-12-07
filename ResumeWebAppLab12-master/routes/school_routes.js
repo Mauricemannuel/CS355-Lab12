@@ -26,7 +26,7 @@ router.get('/', function(req, res){
         res.send('school_id is null');
     }
     else {
-        school_dal.getById(req.query.school_id, function(err,result) {
+        school_dal.getByIdX(req.query.school_id, function(err,result) {
            if (err) {
                res.send(err);
            }

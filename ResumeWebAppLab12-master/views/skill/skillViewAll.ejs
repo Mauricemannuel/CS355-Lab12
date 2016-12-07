@@ -1,0 +1,27 @@
+<%- include("../includes/header.ejs", {title:"Skill - View All"}); %>
+<br />
+<a href="/"><< back</a>
+<h1>Skills</h1>
+<a href="/skill/add">Add New Skill</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Skill Name</th><th>Actions</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/skill/?skill_id=<%= result[i].skill_id %>"><%= result[i].name %></a></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/skill/edit2/?skill_id=<%= result[i].skill_id %>'">Edit</button>
+            <form action="/skill/delete/" style="display:inline;">
+                <input type="hidden" name="skill_id" id="skill_id" value="<%= result[i].skill_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>

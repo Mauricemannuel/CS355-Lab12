@@ -1,12 +1,9 @@
 <%- include("../includes/header.ejs", {title:"Schools - " + result[0].school_name}); %>
-<br />
-<a href="/company/all"><< back</a>
-Schools - <%= result[0].school_name %>
-    <h1>Schools</h1>
+<br /><a href="javascript:history.back()"><< back</a><br />
+<h1>Schools</h1>
     <ul>
-        <li>School ID: <%= result[0].school_id%></li>
         <li>School Name: <%= result[0].school_name %></li>
-        <li>Address ID: <%= result[0].address_id %></li>
+        <li>Address: <%= result[0].street %>, <%= result[0].zip_code %></li>
     </ul>
 </body>
 

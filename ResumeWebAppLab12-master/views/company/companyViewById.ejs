@@ -1,6 +1,6 @@
 <%- include("../includes/header.ejs", {title:"Companies - " + result[0].company_name}); %>
 <br />
-<a href="/company/all"><< back</a>
+<a href="javascript:history.back()"><< back</a>
     <h1>Companies</h1>
     <ul>
         <li>Company Name: <%= result[0].company_name %></li>

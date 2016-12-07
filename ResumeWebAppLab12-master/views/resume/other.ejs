@@ -1,0 +1,36 @@
+
+<%- include("../includes/header.ejs", {title:"Resume - " + resume[0].resume_name}); %>
+<br /><a href="javascript:history.back()"><< back</a><br />
+<h1>Resumes</h1>
+<ul>
+    <li>Resume Name: <%= resume[0].resume_name %></li>
+    <li>Personal Information:
+        <ul>
+            <li>Name: <a href="/account/?account_id=<%= account[0].account_id %>"><%= account[0].first_name %> <%= account[0].last_name %></a></li>
+            <li>Email: <%= account[0].email %></li>
+        </ul>
+    <li>Skills:
+        <ul>
+            <% for(var i=0; skill.length > i; i++ ) { %>
+            <li>Skill Name: <a href="/skill/?skill_id=<%= skill[i].skill_id %>"><%= skill[i].name %></a></li>
+            <ul>
+                <li><%= skill[i].description %></li>
+            </ul>
+            <% } %>
+        </ul>
+    <li>Education:
+        <ul>
+            <% for(var i=0; school.length > i; i++ ) { %>
+            <li>School Name: <a href="/school/?school_id=<%= school[i].school_id %>"><%= school[i].school_name %></a></li>
+            <% } %>
+        </ul>
+    <li>Work Experience:
+        <ul>
+            <% for(var i=0; company.length > i; i++ ) { %>
+            <li>Name: <a href="/company/?company_id=<%= company[i].company_id %>"><%= company[i].company_name %></a></li>
+            <% } %>
+        </ul>
+</ul>
+</body>
+
+</html>

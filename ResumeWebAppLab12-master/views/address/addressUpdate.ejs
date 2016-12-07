@@ -1,0 +1,14 @@
+<%- include("../includes/header.ejs", {title: "Update " + address.street}); %>
+<br />
+<a href="/address/all"><< back</a>
+<h1>Update <%= address.street%> <%= address.zip_code%></h1>
+<form action="/address/update" method="get">
+    <input type="hidden" id="address_id" name="address_id" value="<%= address.address_id %>">
+    Street Name: <input id="street" name="street" type="text" value="<%= address.street%>"/>
+    <br />
+    Zip Code: <input id="zip_code" name="zip_code" type="text" value="<%= address.zip_code%>"/>
+    <br />
+    <input type="submit" />
+</form>
+</body>
+</html>

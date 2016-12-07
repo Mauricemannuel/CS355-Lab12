@@ -33,6 +33,18 @@ exports.getById = function(company_id, callback) {
     });
 };
 
+exports.getByIdR = function(resume_id, callback) {
+    var query = 'SELECT a.*, aaa.company_name, aaa.company_id FROM resume a ' +
+        'LEFT JOIN resume_company aa ON a.resume_id = aa.resume_id ' +
+        'LEFT JOIN company aaa ON aa.company_id = aaa.company_id ' +
+        'WHERE a.resume_id = ?';
+    var queryData = [resume_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
+
 exports.insert = function(params, callback) {
 
     // FIRST INSERT THE COMPANY

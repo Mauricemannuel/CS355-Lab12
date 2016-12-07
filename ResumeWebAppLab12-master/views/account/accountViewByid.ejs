@@ -1,0 +1,10 @@
+<%- include("../includes/header.ejs", {title:"Accounts - " + result[0].account_name}); %>
+<br /><a href="javascript:history.back()"><< back</a><br />
+<h1>Accounts</h1>
+<ul>
+    <li>Account Name: <%= result[0].first_name%> <%= result[0].last_name%></li>
+    <li>Account Email: <%= result[0].email %></li>
+</ul>
+</body>
+
+</html>

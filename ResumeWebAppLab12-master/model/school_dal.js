@@ -29,8 +29,32 @@ exports.getAllX = function(callback) {
     });
 };
 
+exports.getByIdR = function(resume_id, callback) {
+    var query = 'SELECT a.*, aaa.school_name, aaa.school_id FROM resume a ' +
+        'LEFT JOIN resume_school aa ON a.resume_id = aa.resume_id ' +
+        'LEFT JOIN school aaa ON aa.school_id = aaa.school_id ' +
+        'WHERE a.resume_id = ?';
+    var queryData = [resume_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
+
 exports.getById = function(school_id, callback) {
     var query = 'SELECT * FROM school WHERE school_id = ?';
+    var queryData = [school_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
+
+exports.getByIdX = function(school_id, callback) {
+    var query = 'Select s.school_id as school_id, s.school_name as ' +
+        'school_name, a.street as street, a.zip_code as zip_code From ' +
+        'school s Left Join address a on s.address_id = a.address_id ' +
+        'where s.school_id = ?;';
     var queryData = [school_id];
 
     connection.query(query, queryData, function(err, result) {

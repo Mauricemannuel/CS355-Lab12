@@ -1,0 +1,14 @@
+<%- include("../includes/header.ejs", {title: "Update " + skill.skill_name}); %>
+<br />
+<a href="/skill/all"><< back</a>
+<h1>Update <%= skill.first_name%> <%= skill.last_name%></h1>
+<form action="/skill/update" method="get">
+    <input type="hidden" id="skill_id" name="skill_id" value="<%= skill.skill_id %>">
+    Skill Name: <input id="name" name="name" type="text" value="<%= skill.name%>"/>
+    <br />
+    Description:  <input id="description" name="description" type="text" value="<%= skill.description%>"/>
+    <br />
+    <input type="submit" />
+</form>
+</body>
+</html>

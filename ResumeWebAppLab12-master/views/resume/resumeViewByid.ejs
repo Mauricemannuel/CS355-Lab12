@@ -1,0 +1,35 @@
+
+<%- include("../includes/header.ejs", {title:"Resume - " + resume[0].resume_name}); %>
+<br /><a href="javascript:history.back()"><< back</a><br />
+<h1><%= resume[0].resume_name %></li></h1>
+<ul>
+    <li>Personal Information:
+        <ul>
+            <a href="/account/?account_id=<%= account[0].account_id %>"><%= account[0].first_name %> <%= account[0].last_name %></a></br>
+            <%= account[0].email %>
+        </ul>
+    <li>Skills:
+        <ul>
+            <% for(var i=0; skill.length > i; i++ ) { %>
+            <a href="/skill/?skill_id=<%= skill[i].skill_id %>"><%= skill[i].name %></a>
+                <ul>
+                    - <%= skill[i].description %>
+                </ul>
+            <% } %>
+        </ul>
+    <li>Education:
+        <ul>
+            <% for(var i=0; school.length > i; i++ ) { %>
+            <a href="/school/?school_id=<%= school[i].school_id %>"><%= school[i].school_name %></a></br>
+            <% } %>
+        </ul>
+    <li>Work Experience:
+        <ul>
+            <% for(var i=0; company.length > i; i++ ) { %>
+            <a href="/company/?company_id=<%= company[i].company_id %>"><%= company[i].company_name %></a></br>
+            <% } %>
+        </ul>
+</ul>
+</body>
+
+</html>
